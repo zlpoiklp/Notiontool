@@ -16,6 +16,9 @@
 - **📁 强大的文件管理**：侧边栏支持多级嵌套页面、收藏夹、废纸篓以及知识库快速切换。
 - **🎨 极致 UI/UX**：响应式设计，完美支持深色模式，流畅的交互动画。
 
+<img width="1920" height="971" alt="PixPin_2026-02-24_23-38-04" src="https://github.com/user-attachments/assets/03c87880-230b-4392-8dfc-72918eb68b93" />
+
+
 ## 🛠️ 技术栈
 
 - **Frontend**: React 18, TypeScript, Vite
