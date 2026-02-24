@@ -1,0 +1,5 @@
+{
+  "name": "Notion AI Clone",
+  "description": "A Notion-like application for organizing articles, beautifying formatting, and dividing paragraphs using Gemini AI.",
+  "requestFramePermissions": []
+}
