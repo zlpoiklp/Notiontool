@@ -1,4 +1,4 @@
-# ✨ Notion AI Clone
+# Notion工具
 
 一个基于 React + Vite + Tailwind CSS 构建的 Notion 风格 AI 写作助手。
 
