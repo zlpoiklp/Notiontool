@@ -1,0 +1,807 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Tailwind v4 dark mode selector configuration */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Cursor Fixes */
+html, body {
+  cursor: default;
+}
+
+.tiptap {
+  min-height: 500px;
+  cursor: text !important;
+}
+
+.tiptap [contenteditable="false"] {
+  cursor: default;
+}
+
+.tiptap table {
+  cursor: default;
+}
+
+.tiptap td, .tiptap th {
+  cursor: text;
+}
+
+/* Ensure textarea and inputs have correct cursors */
+textarea, input {
+  cursor: text !important;
+}
+
+button, [role="button"], a {
+  cursor: pointer !important;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.zoom-in {
+  animation-name: zoomIn;
+}
+
+.slide-in-from-left-2 {
+  animation-name: slideInFromLeft;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* AI Loading Animation (from cs.css) */
+.preloader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #a855f7; /* purple-500 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9333ea; /* purple-600 */
+}
+
+/* Firefox support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 transparent;
+}
+
+/* Markdown styling in Chat */
+.prose-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose-sm p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-sm ul, .prose-sm ol {
+  padding-left: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-sm li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.prose-sm pre {
+  padding: 0.75em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.prose-sm code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85em;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
+}
+
+.dark .prose-sm code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.preloader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crack {
+  position: absolute;
+  width: 25%;
+  aspect-ratio: 1;
+  background-color: #9333ea; /* purple-600 */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  transform: rotate(15deg);
+}
+
+.crack-animate {
+  animation: rotate-ai 6s infinite linear;
+}
+
+.dark .crack {
+  background-color: #a855f7; /* purple-500 */
+}
+
+.crack2 { width: 40%; transform: rotate(-10deg); }
+.crack3 { width: 55%; transform: rotate(25deg); }
+.crack4 { width: 70%; transform: rotate(-5deg); }
+.crack5 { width: 85%; transform: rotate(40deg); }
+
+.crack2.crack-animate { animation-delay: 1s; }
+.crack3.crack-animate { animation-delay: 1.5s; }
+.crack4.crack-animate { animation-delay: 2s; }
+.crack5.crack-animate { animation-delay: 2.5s; }
+
+@keyframes rotate-ai {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Page Flickering Effect */
+@keyframes flicker-page {
+  0%, 100% { 
+    opacity: 1; 
+    filter: brightness(1);
+  }
+  50% { 
+    opacity: 0.95; 
+    filter: brightness(1.02);
+  }
+}
+
+.animate-flicker-slow {
+  animation: flicker-page 3s infinite ease-in-out !important;
+}
+
+.processing-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+  cursor: progress;
+}
+
+.dark .processing-overlay {
+  background: rgba(24, 24, 27, 0.3);
+}
+
+/* Hamster Loading Animation */
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+@keyframes hamster {
+  from, to { transform: rotate(4deg) translate(-0.8em,1.85em); }
+  50% { transform: rotate(0) translate(-0.8em,1.85em); }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to { transform: rotate(0); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(8deg); }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to { transform: scaleY(1); }
+  95% { transform: scaleY(0); }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to { transform: rotate(0); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(12deg); }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to { transform: rotate(0); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(-2deg); }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to { transform: rotate(15deg) translateZ(-1px); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(-30deg) translateZ(-1px); }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to { transform: rotate(15deg); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(-30deg); }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to { transform: rotate(-25deg) translateZ(-1px); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(20deg) translateZ(-1px); }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to { transform: rotate(-25deg); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(20deg); }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to { transform: rotate(30deg) translateZ(-1px); }
+  12.5%, 37.5%, 62.5%, 87.5% { transform: rotate(10deg) translateZ(-1px); }
+}
+
+@keyframes spoke {
+  from { transform: rotate(0); }
+  to { transform: rotate(-1turn); }
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Tiptap specific styles */
+.tiptap ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+.tiptap ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap ul[data-type="taskList"] label {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+  user-select: none;
+  margin-top: 0.25rem;
+}
+
+.tiptap ul[data-type="taskList"] input[type="checkbox"] {
+  cursor: pointer;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.25rem;
+  border: 2px solid #e2e8f0;
+  appearance: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.dark .tiptap ul[data-type="taskList"] input[type="checkbox"] {
+  border-color: #3f3f46;
+}
+
+.tiptap ul[data-type="taskList"] input[type="checkbox"]:checked {
+  background-color: #a855f7; /* purple-500 */
+  border-color: #a855f7;
+}
+
+.tiptap ul[data-type="taskList"] input[type="checkbox"]:checked::after {
+  content: '✓';
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.tiptap ul[data-type="taskList"] div {
+  flex: 1 1 auto;
+}
+
+.tiptap ul[data-type="taskList"] li[data-checked="true"] div p {
+  text-decoration: line-through;
+  color: #a1a1aa; /* zinc-400 */
+}
+
+.tiptap table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.tiptap table td,
+.tiptap table th {
+  min-width: 1em;
+  border: 1px solid #e2e8f0;
+  padding: 3px 5px;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.dark .tiptap table td,
+.dark .tiptap table th {
+  border-color: #3f3f46;
+}
+
+.tiptap table th {
+  font-weight: bold;
+  text-align: left;
+  background-color: #f8fafc;
+}
+
+.dark .tiptap table th {
+  background-color: #27272a;
+}
+
+.tiptap table .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(200, 200, 255, 0.4);
+  pointer-events: none;
+}
+
+.dark .tiptap table .selectedCell:after {
+  background: rgba(100, 100, 255, 0.2);
+}
+
+.tiptap table .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -2px;
+  width: 4px;
+  background-color: #adf;
+  pointer-events: none;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #a1a1aa; /* zinc-400 */
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap:focus {
+  outline: none;
+}
+
+.tiptap mark {
+  background-color: #fef08a; /* yellow-200 */
+  border-radius: 0.125rem;
+  padding: 0.125rem 0;
+  /* 默认在浅色模式下保持继承的文字颜色 */
+}
+
+/* 在暗色模式下，如果应用了高亮背景，强制使用深色文字以保证对比度 */
+.dark .tiptap mark,
+.dark .tiptap [style*="background-color"] {
+  color: #18181b !important; /* zinc-950 */
+}
+
+/* 同样处理文字颜色，如果用户设置了黑色文字，在暗色模式下应变为白色或浅灰色 */
+.dark .tiptap [style*="color: #000000"],
+.dark .tiptap [style*="color: rgb(0, 0, 0)"] {
+  color: #f4f4f5 !important; /* zinc-100 */
+}
+
+/* AI icon style from css/cs.css */
+.ai-burst-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 2px rgba(196, 181, 253, 0.85));
+}
+
+.ai-burst-sm {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.ai-burst-md {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ai-burst-lg {
+  width: 1.95rem;
+  height: 1.95rem;
+}
+
+.ai-burst-xl {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.ai-burst-crack {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 58%;
+  background-color: #a855f7;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  animation: ai-burst-rotate 6s linear infinite;
+}
+
+.ai-burst-crack2 {
+  width: 66%;
+  animation-delay: 1s;
+  opacity: 0.92;
+}
+
+.ai-burst-crack3 {
+  width: 74%;
+  animation-delay: 1.5s;
+  opacity: 0.84;
+}
+
+.ai-burst-crack4 {
+  width: 82%;
+  animation-delay: 2s;
+  opacity: 0.72;
+}
+
+.ai-burst-crack5 {
+  width: 90%;
+  animation-delay: 2.5s;
+  opacity: 0.58;
+}
+
+@keyframes ai-burst-rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-burst-crack {
+    animation: none;
+  }
+}
+
+/* Reply loading animation from css2/jz.css (scoped) */
+.ai-reply-loader {
+  width: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-reply-loader-inline {
+  width: 26px;
+}
+
+.ai-reply-loader-inline .ai-reply-ball {
+  width: 5px;
+  height: 5px;
+}
+
+.ai-reply-ball {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #d4d4d8;
+}
+
+.ai-reply-ball:nth-child(1) {
+  animation: ai-reply-bounce-1 2.1s ease-in-out infinite;
+}
+
+.ai-reply-ball:nth-child(2) {
+  animation: ai-reply-bounce-2 2.1s ease-in-out 0.3s infinite;
+}
+
+.ai-reply-ball:nth-child(3) {
+  animation: ai-reply-bounce-3 2.1s ease-in-out 0.6s infinite;
+}
+
+@keyframes ai-reply-bounce-1 {
+  50% {
+    transform: translateY(-8px);
+    background-color: #a855f7;
+  }
+}
+
+@keyframes ai-reply-bounce-2 {
+  50% {
+    transform: translateY(-8px);
+    background-color: #a855f7;
+  }
+}
+
+@keyframes ai-reply-bounce-3 {
+  50% {
+    transform: translateY(-8px);
+    background-color: #a855f7;
+  }
+}
+
+.ai-reply-loader-inline .ai-reply-ball:nth-child(1) {
+  animation-name: ai-reply-bounce-inline-1;
+}
+
+.ai-reply-loader-inline .ai-reply-ball:nth-child(2) {
+  animation-name: ai-reply-bounce-inline-2;
+}
+
+.ai-reply-loader-inline .ai-reply-ball:nth-child(3) {
+  animation-name: ai-reply-bounce-inline-3;
+}
+
+@keyframes ai-reply-bounce-inline-1 {
+  50% {
+    transform: translateY(-5px);
+    background-color: #a855f7;
+  }
+}
+
+@keyframes ai-reply-bounce-inline-2 {
+  50% {
+    transform: translateY(-5px);
+    background-color: #a855f7;
+  }
+}
+
+@keyframes ai-reply-bounce-inline-3 {
+  50% {
+    transform: translateY(-5px);
+    background-color: #a855f7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-reply-ball {
+    animation: none;
+  }
+}
